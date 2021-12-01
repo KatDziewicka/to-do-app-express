@@ -1,14 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import {
-  addDummyDbItems,
-  addDbItem,
-  getAllDbItems,
-  getDbItemById,
-  DbItem,
-  updateDbItemById,
-} from "./db";
 import filePath from "./filePath";
 import { Client } from "pg";
 
