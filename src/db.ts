@@ -1,5 +1,9 @@
 export interface DbItem {
-  // sketch out interface here
+  description: string;
+  isComplete?: boolean;
+  creationDate?: string;
+  dueDate?: string;
+  isOverdue?: boolean;
 }
 
 export interface DbItemWithId extends DbItem {
@@ -21,7 +25,7 @@ export const addDummyDbItems = (n: number): DbItemWithId[] => {
   const createdSignatures: DbItemWithId[] = [];
   for (let count = 0; count < n; count++) {
     const createdSignature = addDbItem({
-      // possibly add some generated data here
+     description: `This is the thing I need to do #${idCounter}`,
     });
     createdSignatures.push(createdSignature);
   }
