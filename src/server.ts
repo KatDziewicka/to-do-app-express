@@ -4,6 +4,16 @@ import dotenv from "dotenv";
 import filePath from "./filePath";
 import { Client } from "pg";
 
+const config = {
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorised: false
+  }
+};
+
+console.log({ config });
+
+
 const client = new Client ({
   database: 'tododb'
 });
