@@ -141,5 +141,6 @@ app.delete("/todos/:id", async (req, res) => {
 //   console.log(`Express is working on port ${port}`);
 // });
 
+app.listen(process.env.PORT);
 
 export default app; 
