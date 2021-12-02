@@ -130,10 +130,11 @@ app.delete("/todos/:id", async (req, res) => {
 //   }
 // });
 
-const server = app.listen(process.env.PORT || PORT_NUMBER, () => {
-  const port = (process.env.PORT) ? process.env.PORT : PORT_NUMBER
-  console.log(`Server is listening on port ${port}!`);
-});
+// const server = app.listen(process.env.PORT || PORT_NUMBER, () => {
+//   const port = (process.env.PORT) ? process.env.PORT : PORT_NUMBER
+//   console.log(`Server is listening on port ${port}!`);
+//   console.log(process.env.PORT, PORT_NUMBER)
+// });
 
 // const server = app.listen(process.env.PORT || 5000, () => {
 //   const port = server.address().port;
