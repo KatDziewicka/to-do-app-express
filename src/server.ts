@@ -2,25 +2,23 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import filePath from "./filePath";
-import { Client } from "pg";
+import { Client, ClientConfig} from "pg";
 dotenv.config();
 
 const connectToHeroku = process.env.NODE_ENV === 'production';
 
 
-const config = {
+const config: ClientConfig = {
   connectionString: process.env.DATABASE_URL,
   ssl: connectToHeroku ? {
-    rejectUnauthorised: false
+    rejectUnauthorized: false
   } : false
 };
 
 console.log({ config, connectToHeroku, nodeEnv: process.env.NODE_ENV });
 
 
-const client = new Client ({
-  database: 'tododb'
-});
+const client = new Client(config);
 
 client.connect();
 
