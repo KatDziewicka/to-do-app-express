@@ -5,24 +5,30 @@ import filePath from "./filePath";
 import { Client, ClientConfig} from "pg";
 dotenv.config();
 
-const connectToHeroku = process.env.NODE_ENV === 'production';
+// const connectToHeroku = process.env.NODE_ENV === 'production';
 
 
-const config: ClientConfig = {
+const config = {
   connectionString: process.env.DATABASE_URL,
-  ssl: connectToHeroku ? {
+  ssl: {
     rejectUnauthorized: false
-  } : false
+  },
 };
 
-console.log({ config, connectToHeroku, nodeEnv: process.env.NODE_ENV });
-
-
-const client = new Client(config);
-
-client.connect();
+// console.log({ config, connectToHeroku, nodeEnv: process.env.NODE_ENV });
 
 const app = express();
+const client = new Client(config);
+
+client.connect((err) => {
+  if (err) {
+    console.error("connection error", err.stack);
+  } else {
+    console.log("connected");
+  }
+});
+
+
 
 // loading in some dummy items into the database
 // (comment out if desired, or change the number)
