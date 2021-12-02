@@ -3,15 +3,19 @@ import cors from "cors";
 import dotenv from "dotenv";
 import filePath from "./filePath";
 import { Client } from "pg";
+dotenv.config();
+
+const connectToHeroku = process.env.NODE_ENV === 'production';
+
 
 const config = {
   connectionString: process.env.DATABASE_URL,
-  ssl: {
+  ssl: connectToHeroku ? {
     rejectUnauthorised: false
-  }
+  } : false
 };
 
-console.log({ config });
+console.log({ config, connectToHeroku, nodeEnv: process.env.NODE_ENV });
 
 
 const client = new Client ({
