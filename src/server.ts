@@ -5,7 +5,7 @@ import filePath from "./filePath";
 import { Client, ClientConfig} from "pg";
 dotenv.config();
 
-// const connectToHeroku = process.env.NODE_ENV === 'production';
+const connectToHeroku = process.env.NODE_ENV === 'production';
 
 
 const config = {
@@ -14,6 +14,8 @@ const config = {
     rejectUnauthorized: false
   },
 };
+
+console.log(config);
 
 // console.log({ config, connectToHeroku, nodeEnv: process.env.NODE_ENV });
 
@@ -136,10 +138,10 @@ app.delete("/todos/:id", async (req, res) => {
 //   }
 // });
 
-// const server = app.listen(process.env.PORT || PORT_NUMBER, () => {
-//   const port = server.address() ;
-//   console.log(`Server is listening on port ${port}!`);
-// });
+const server = app.listen(process.env.PORT || PORT_NUMBER, () => {
+  const port = server.address() ;
+  console.log(`Server is listening on port ${port}!`);
+});
 
 // const server = app.listen(process.env.PORT || 5000, () => {
 //   const port = server.address().port;
