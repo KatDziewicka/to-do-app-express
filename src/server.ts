@@ -140,3 +140,6 @@ app.delete("/todos/:id", async (req, res) => {
 //   const port = server.address().port;
 //   console.log(`Express is working on port ${port}`);
 // });
+
+
+export default app; 
