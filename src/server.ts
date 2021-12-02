@@ -136,6 +136,12 @@ app.delete("/todos/:id", async (req, res) => {
 //   }
 // });
 
-app.listen(PORT_NUMBER, () => {
-  console.log(`Server is listening on port ${PORT_NUMBER}!`);
-});
+// const server = app.listen(process.env.PORT || PORT_NUMBER, () => {
+//   const port = server.address() ;
+//   console.log(`Server is listening on port ${port}!`);
+// });
+
+// const server = app.listen(process.env.PORT || 5000, () => {
+//   const port = server.address().port;
+//   console.log(`Express is working on port ${port}`);
+// });
