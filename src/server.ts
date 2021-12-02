@@ -138,7 +138,7 @@ app.delete("/todos/:id", async (req, res) => {
 // });
 
 const server = app.listen(process.env.PORT || PORT_NUMBER, () => {
-  const port = server.address() ;
+  const port = (process.env.PORT) ? process.env.PORT : PORT_NUMBER
   console.log(`Server is listening on port ${port}!`);
 });
 
