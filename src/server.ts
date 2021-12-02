@@ -29,13 +29,6 @@ client.connect((err) => {
   }
 });
 
-
-
-// loading in some dummy items into the database
-// (comment out if desired, or change the number)
-// addDummyDbItems(20);
-
-
 /** Parses JSON data in a request automatically */
 app.use(express.json());
 /** To allow 'Cross-Origin Resource Sharing': https://en.wikipedia.org/wiki/Cross-origin_resource_sharing */
